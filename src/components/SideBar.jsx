@@ -8,15 +8,14 @@ import {
   File as FileIcon,
   Folder as FolderIcon,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SideImg from './SideImg';
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className='d-flex flex-row border border-primary w-25'>
-        <SideImg />
-    <div className="bg-dark text-light p-2 border" >
+    <div className="bg-dark text-light p-2" style={{width : "13rem"}} >
       <div className="d-flex justify-content-between align-items-center mb-2">
         <span className="fw-bold">EXPLORER</span>
         <div>
@@ -34,21 +33,21 @@ const SideBar = () => {
 
       <div>
         <button
-          className="btn btn-dark text-start w-100 d-flex align-items-center"
+          className="btn btn-dark text-center w-100 d-flex align-items-center"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-          <FolderIcon size={16} className="ms-1 me-2" />
-          <span>PORTFOLIO</span>
+          <FolderIcon size={16} className="ms-1 me-2 " />
+          <span >PORTFOLIO</span>
         </button>
 
         {isOpen && (
           <div className="ms-3 mt-2">
-            <button className="btn btn-dark text-start w-100 d-flex align-items-center mb-1">
+            <Link to="sidebar" className="btn btn-dark text-start w-100 d-flex align-items-center mb-1">
               <ChevronRight size={16} />
               <FolderIcon size={16} className="ms-1 me-2" />
               <span>dist</span>
-            </button>
+            </Link>
             <button className="btn btn-dark text-start w-100 d-flex align-items-center mb-1">
               <ChevronRight size={16} />
               <FolderIcon size={16} className="ms-1 me-2" />
@@ -99,7 +98,6 @@ const SideBar = () => {
           </div>
         )}
       </div>
-    </div>
     </div>
   );
 };
